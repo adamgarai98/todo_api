@@ -6,7 +6,7 @@ tasks = []
 
 @app.route("/tasks", methods=["GET"])
 def get_tasks():
-    return jsonify({"tasks": tasks})
+    return jsonify({'tasks': [task.__dict__ for task in tasks]})
 
 @app.route('/tasks', methods=['POST'])
 def create_task():
@@ -47,13 +47,6 @@ def update_task(task_id):
         setattr(task, key, value)
 
     return jsonify({'task': task.__dict__})
-
-@app.route('/tasks/<int:task_id>', methods=['DELETE'])
-def delete_task(task_id):
-    global tasks
-    tasks = [task for task in tasks if task.id != task_id]
-
-    return jsonify({'message': f'Task with ID {task_id} has been deleted'})
 
 @app.route('/tasks/<int:task_id>', methods=['DELETE'])
 def delete_task(task_id):
