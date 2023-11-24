@@ -19,7 +19,7 @@ def healthcheck():
     return "OK"
 
 
-def main(host: str, port: int, debug: bool) -> None:
+def main(host: str = "0.0.0.0", port: int = 5000, debug: bool = False) -> None:
     logger.info("Starting server...")
     app.run(host=host, port=port, debug=debug)
 
