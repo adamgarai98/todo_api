@@ -38,6 +38,6 @@ setuptools.setup(
         "that_one_endpoint": ["opencv"],
         # 'test': ['coverage'],
     },
-    author="James Massey",
-    author_email="jammassey@hotmail.com",
+    author="Adam Garai",
+    author_email="a.garai98@gmail.com",
 )
