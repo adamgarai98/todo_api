@@ -1,20 +1,23 @@
-# Use the official Python image
-FROM python:3.9
+FROM python:3.9.18-slim-bullseye
 
-# Set the working directory
 WORKDIR /app
 
-# Copy the requirements file into the container at /app
 COPY requirements.txt /app/
 
-# Install any dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
-# Copy the current directory contents into the container at /app
-COPY . .
 
-# Expose port 5000
+COPY setup.cfg /app/
+COPY pyproject.toml /app/
+COPY setup.py /app/
+COPY src /app/src
+
+RUN pip install .
+
 EXPOSE 5000
 
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+ENTRYPOINT [ "todo_api" ]
+
+
+
+
