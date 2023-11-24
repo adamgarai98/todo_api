@@ -5,6 +5,3 @@ class Task:
         self.description = description
         self.completed = completed
         self.due_date = due_date
-
-#NoSQL
-#MongoDB

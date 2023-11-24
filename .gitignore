@@ -1,6 +1,3 @@
-# Notebooks
-*.ipynb
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -78,6 +75,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
+debug.ipynb
 .ipynb_checkpoints
 
 # IPython
@@ -132,11 +130,5 @@ dmypy.json
 .pyre/
 configs/
 
-# ignore db data
-db/*
-/deploy
-.env
-
-#ds store
 .DS_Store
 .DS_Store?
