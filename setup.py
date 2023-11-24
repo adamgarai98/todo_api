@@ -3,6 +3,8 @@ import pathlib
 import pkg_resources
 import setuptools
 
+import versioneer
+
 install_requires = []
 with pathlib.Path("requirements.txt").open() as requirements_txt:
     install_requires = [str(requirement) for requirement in pkg_resources.parse_requirements(requirements_txt)]
@@ -13,6 +15,8 @@ setuptools.setup(
     package_dir={"": "src"},
     include_package_data=True,
     install_requires=install_requires,
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     packages=setuptools.find_packages(where="src"),
     entry_points={
         "console_scripts": [
@@ -34,8 +38,8 @@ setuptools.setup(
     ],
     python_requires=">=3.7",
     extras_require={
-        "dev": ["check-manifest"],
-        "that_one_endpoint": ["opencv"],
+        "dev": ["check-manifest", "versioneer"]
+        #"that_one_endpoint": ["opencv"],
         # 'test': ['coverage'],
     },
     author="Adam Garai",
