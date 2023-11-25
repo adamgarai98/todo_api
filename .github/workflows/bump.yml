@@ -68,7 +68,7 @@ jobs:
         git tag $NEW_VERSION_RC
         git push origin $NEW_VERSION_RC
 
-
+        #Git did not like GITHUB_TOKEN
     - name: Create Pre-Release
       id: create_release
       if: steps.bump_version.outputs.new_version_rc != ''
